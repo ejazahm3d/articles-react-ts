@@ -17,7 +17,7 @@ const Articles: React.FC<Props> = () => {
   return (
     <Box paddingY="5rem">
       <ArticleForm />
-      <ArticleSortBy />
+      <ArticleSortBy articles={articles} />
       <ArticleList articles={articles} />
     </Box>
   );
