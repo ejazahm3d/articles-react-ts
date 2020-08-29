@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/core";
 import { useAppDispatch } from "../../store";
 import { addArticle } from "./articlesSlice";
+import { parse } from "url";
 
 interface Props {}
 
@@ -31,7 +32,7 @@ const ArticleForm: React.FC<Props> = (props) => {
       addArticle({
         id: v4(),
         title: data.title,
-        date: data.date,
+        date: new Date(data.date).toISOString(),
         upvotes: 0,
       })
     );
@@ -48,7 +49,7 @@ const ArticleForm: React.FC<Props> = (props) => {
           ref={register({ required: true })}
         />
         <FormErrorMessage>
-          {errors.title && errors.title.message}
+          {errors.title && "Title is required"}
         </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.date}>
@@ -59,9 +60,7 @@ const ArticleForm: React.FC<Props> = (props) => {
           type="date"
           ref={register({ required: true })}
         />
-        <FormErrorMessage>
-          {errors.date && errors.date.message}
-        </FormErrorMessage>
+        <FormErrorMessage>{errors.date && "Date is required"}</FormErrorMessage>
       </FormControl>
       <Button
         mt={4}

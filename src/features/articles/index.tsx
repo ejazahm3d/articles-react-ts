@@ -6,10 +6,7 @@ import ArticleList from "./list-articles.component";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
-interface Props {
-  articles: Article[];
-  setArticles: React.Dispatch<React.SetStateAction<Article[]>>;
-}
+interface Props {}
 
 const Articles: React.FC<Props> = () => {
   const articles = useSelector<RootState, Article[]>(

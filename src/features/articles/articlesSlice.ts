@@ -1,12 +1,13 @@
 import { Article } from "../../interfaces/article.interface";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import articleData from "../../db/data.json";
 
 export interface ArticlesSlice {
   articles: Article[];
 }
 
 const initialState: ArticlesSlice = {
-  articles: [],
+  articles: articleData,
 };
 
 export const articlesSlice = createSlice({
