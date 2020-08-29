@@ -9,10 +9,10 @@ interface Props {
   setArticles: React.Dispatch<React.SetStateAction<Article[]>>;
 }
 
-const Articles: React.FC<Props> = (props) => {
+const Articles: React.FC<Props> = ({ articles, setArticles }) => {
   return (
     <Box paddingY="5rem">
-      <ArticleForm />
+      <ArticleForm setArticles={setArticles} />
       <ArticleList />
     </Box>
   );

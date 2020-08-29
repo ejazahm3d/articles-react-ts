@@ -13,7 +13,7 @@ const Footer = () => {
       justify="space-between"
     >
       <Heading size="lg" color="white">
-        Articles
+        Contact Me
       </Heading>
       <Flex>
         <Box mx="0.5rem" cursor="pointer">
