@@ -1,5 +1,4 @@
 import React from "react";
-import { Article } from "../../interfaces/article.interface";
 import { v4 } from "uuid";
 import { useForm } from "react-hook-form";
 import {
@@ -12,7 +11,6 @@ import {
 } from "@chakra-ui/core";
 import { useAppDispatch } from "../../store";
 import { addArticle } from "./articlesSlice";
-import { parse } from "url";
 
 interface Props {}
 

@@ -5,6 +5,7 @@ import ArticleForm from "./create-article.component";
 import ArticleList from "./list-articles.component";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import ArticleSortBy from "./article-sortby.component";
 
 interface Props {}
 
@@ -16,6 +17,7 @@ const Articles: React.FC<Props> = () => {
   return (
     <Box paddingY="5rem">
       <ArticleForm />
+      <ArticleSortBy />
       <ArticleList articles={articles} />
     </Box>
   );
