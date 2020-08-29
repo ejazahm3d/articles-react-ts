@@ -1,16 +1,24 @@
 import React from "react";
 import Header from "./header.component";
 import Footer from "./footer.component";
+import { Flex } from "@chakra-ui/core";
 
 interface Props {}
 
 const Layout: React.FC<Props> = (props) => {
   return (
-    <div>
+    <>
       <Header />
-      {props.children}
+      <Flex
+        flexDirection="column"
+        paddingX="8rem"
+        justifyContent="center"
+        alignItems="center"
+      >
+        {props.children}
+      </Flex>
       <Footer />
-    </div>
+    </>
   );
 };
 

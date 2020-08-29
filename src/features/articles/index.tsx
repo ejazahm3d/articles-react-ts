@@ -1,6 +1,8 @@
 import React from "react";
 import { Article } from "../../interfaces/article.interface";
-import { Button } from "@chakra-ui/core";
+import { Box } from "@chakra-ui/core";
+import ArticleForm from "./create-article.component";
+import ArticleList from "./list-articles.component";
 
 interface Props {
   articles: Article[];
@@ -9,10 +11,10 @@ interface Props {
 
 const Articles: React.FC<Props> = (props) => {
   return (
-    <div>
-      Articles
-      <Button>Test</Button>
-    </div>
+    <Box paddingY="5rem">
+      <ArticleForm />
+      <ArticleList />
+    </Box>
   );
 };
 
