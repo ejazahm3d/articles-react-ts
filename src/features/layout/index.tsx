@@ -11,9 +11,10 @@ const Layout: React.FC<Props> = (props) => {
       <Header />
       <Flex
         flexDirection="column"
-        paddingX="8rem"
+        paddingX={{ sm: "3rem", lg: "8rem" }}
         justifyContent="center"
         alignItems="center"
+        maxWidth="100%"
       >
         {props.children}
       </Flex>
