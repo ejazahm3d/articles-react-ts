@@ -3,6 +3,8 @@ import {
   addArticle,
   sortArticles,
   SortBy,
+  sortByMostRecent,
+  sortByMostUpvoted,
 } from "../../features/articles/articlesSlice";
 import { Article } from "../../interfaces/article.interface";
 import data from "../../db/data.json";
@@ -19,7 +21,7 @@ describe("transaction redux", () => {
   it("should handle addArticle", () => {
     expect(
       articlesReducer(
-        { articles: [] },
+        { articles: data },
         {
           type: addArticle.type,
           payload: {
@@ -47,20 +49,7 @@ describe("transaction redux", () => {
     expect(
       articlesReducer(
         {
-          articles: [
-            {
-              id: "f3033fb5-3378-49a2-9c95-e6d5874c27bf",
-              title: "Eloise at Christmastime",
-              date: "2020-06-01T01:44:51Z",
-              upvotes: 1,
-            },
-            {
-              id: "55502937-a6e8-4f48-a47a-885f9a874931",
-              title: "Inn of the Sixth Happiness, The",
-              date: "2019-12-21T20:48:42Z",
-              upvotes: 2,
-            },
-          ],
+          articles: data,
         },
         {
           type: sortArticles(SortBy.MostUpvoted),
@@ -68,20 +57,7 @@ describe("transaction redux", () => {
         }
       )
     ).toEqual({
-      articles: [
-        {
-          id: "55502937-a6e8-4f48-a47a-885f9a874931",
-          title: "Inn of the Sixth Happiness, The",
-          date: "2019-12-21T20:48:42Z",
-          upvotes: 2,
-        },
-        {
-          id: "f3033fb5-3378-49a2-9c95-e6d5874c27bf",
-          title: "Eloise at Christmastime",
-          date: "2020-06-01T01:44:51Z",
-          upvotes: 1,
-        },
-      ],
+      articles: sortByMostUpvoted(data),
     });
   });
 
@@ -89,7 +65,7 @@ describe("transaction redux", () => {
     expect(
       articlesReducer(
         {
-          articles: [...data],
+          articles: data,
         },
         {
           type: sortArticles(SortBy.MostRecent),
@@ -97,7 +73,7 @@ describe("transaction redux", () => {
         }
       )
     ).toEqual({
-      articles: [...data],
+      articles: sortByMostRecent(data),
     });
   });
 });
