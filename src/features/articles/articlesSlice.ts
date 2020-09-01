@@ -30,6 +30,7 @@ export const articlesSlice = createSlice({
   reducers: {
     addArticle: (state, action: PayloadAction<Article>) => {
       state.articles.push(action.payload);
+      // immer.js
     },
     sortArticles: (state, action: PayloadAction<SortBy>) => {
       switch (action.payload) {

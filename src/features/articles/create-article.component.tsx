@@ -43,7 +43,7 @@ const ArticleForm: React.FC<Props> = (props) => {
       <Heading marginBottom="1rem">Create Article</Heading>
       <form onSubmit={handleSubmit(handleSubmitForm)}>
         <FormControl isInvalid={!!errors.title}>
-          <FormLabel htmlFor="title">First name</FormLabel>
+          <FormLabel htmlFor="title">Title</FormLabel>
           <Input
             name="title"
             placeholder="Title"
@@ -54,7 +54,7 @@ const ArticleForm: React.FC<Props> = (props) => {
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.date}>
-          <FormLabel htmlFor="Date">First name</FormLabel>
+          <FormLabel htmlFor="Date">Date</FormLabel>
           <Input
             name="date"
             placeholder="Date"
